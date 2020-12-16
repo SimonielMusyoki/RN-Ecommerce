@@ -3,9 +3,9 @@ export const bmw = require('../assets/images/brands/bmw.svg')
 export const mercedes_benz = require('../assets/images/brands/mercedes-benz.svg')
 export const bughatti = require('../assets/images/brands/bughatti.jpg')
 export const ferari = require('../assets/images/brands/ferari.png')
-export const lamborghini = require('../assets/images/brands/lamboghini.png')
+export const lamborghini = require('../assets/images/brands/lamborghini.png')
 export const tesla = require('../assets/images/brands/tesla.png')
-export const volkswagen = require('../assets/images/brands/volkswagen.png')
+export const volkswagen = require('../assets/images/brands/volkswagen.jpg')
 
 // Sliders
 export const photo_cover_1 = require('../assets/images/sliders/photo-cover-1.jpeg')
@@ -28,7 +28,7 @@ export const product_4 = require('../assets/images/products/product-4.jpeg');
 export const product_5 = require('../assets/images/products/product-5.jpeg');
 export const product_6 = require('../assets/images/products/product-6.jpeg');
 export const product_7 = require('../assets/images/products/product-7.jpeg');
-export const product_8 = require('../assets/images/products/product-9.jpeg');
+export const product_8 = require('../assets/images/products/product-8.jpeg');
 
 export default {
     bmw,

@@ -1,21 +1,33 @@
-import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { useFonts } from 'expo-font'
+import AppLoading from 'expo-app-loading';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
 
-export default function App() {
+import { Home} from './screens';
+import Tabs from './navigation/bottomTabs'
+
+const App = () => {
+  let [fontsLoaded] = useFonts({
+    'Roboto-Black': require('./assets/fonts/Roboto-Black.ttf'),
+    'Roboto-Bold': require('./assets/fonts/Roboto-Bold.ttf'),
+    'Roboto-Regular': require('./assets/fonts/Roboto-Regular.ttf'),
+  })
+
+  if (!fontsLoaded){
+    return <AppLoading />
+  }
+
+  const Stack = createStackNavigator();
+
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
+    <NavigationContainer >
+      <Stack.Navigator screenOptions={{ headerShown: false}}>
+        <Stack.Screen name="Home" component={Tabs} />
+      </Stack.Navigator>
+    </NavigationContainer>
+  )
+
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+export default App;
