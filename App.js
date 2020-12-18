@@ -4,7 +4,7 @@ import AppLoading from 'expo-app-loading';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 
-import { Home} from './screens';
+import { ProductList, ProductDetails } from './screens';
 import Tabs from './navigation/bottomTabs'
 
 const App = () => {
@@ -22,8 +22,10 @@ const App = () => {
 
   return (
     <NavigationContainer >
-      <Stack.Navigator screenOptions={{ headerShown: false}}>
-        <Stack.Screen name="Home" component={Tabs} />
+      <Stack.Navigator>
+        <Stack.Screen name="Home" component={Tabs} options={{ headerShown: false}} />
+        <Stack.Screen name="Products" component={ProductList} />
+        <Stack.Screen name="Details" component={ProductDetails} />
       </Stack.Navigator>
     </NavigationContainer>
   )

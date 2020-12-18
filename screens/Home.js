@@ -7,7 +7,9 @@ import {
     SafeAreaView,
     FlatList,
     Image,
-    Platform
+    Platform,
+    ScrollView,
+    TouchableOpacity
 } from 'react-native';
 
 import {
@@ -17,9 +19,9 @@ import {
     images,
     SIZES,
 } from '../constants'
-import { ScrollView, TouchableOpacity } from 'react-native-gesture-handler';
+import data from '../data'
 
-const Home = () => {
+const Home = ({navigation}) => {
 
     const [searchText, setSearchText] = React.useState('');
     const imageList = [
@@ -203,12 +205,18 @@ const Home = () => {
                 borderRadius: SIZES.radius,
                 padding: SIZES.padding * 2,
                 }}>
-                <TouchableOpacity style={{
-                    width: SIZES.width * 0.25 - 8,
-                    height: 120,
-                    justifyContent: 'center',
-                    alignItems: 'center',
-                }}>
+                <TouchableOpacity 
+                    style={{
+                        width: SIZES.width * 0.25 - 8,
+                        height: 120,
+                        justifyContent: 'center',
+                        alignItems: 'center',
+                    }}
+
+                    onPress={() => navigation.navigate("Products", {
+                        data: data.cars
+                    })}
+                >
                     <View style={{
                     backgroundColor: COLORS.white,
                     borderRadius: 50,
@@ -227,12 +235,18 @@ const Home = () => {
 
                     <Text style={{ textAlign: 'center', ...FONTS.body2}}>Cars</Text>
                 </TouchableOpacity>
-                <TouchableOpacity style={{
-                    width: SIZES.width * 0.25 - 8,
-                    height: 120,
-                    justifyContent: 'center',
-                    alignItems: 'center'
-                }}>
+                <TouchableOpacity 
+                    style={{
+                        width: SIZES.width * 0.25 - 8,
+                        height: 120,
+                        justifyContent: 'center',
+                        alignItems: 'center'
+                    }}
+
+                    onPress={() => navigation.navigate("Products", {
+                        data: data.motorcycles
+                    })}
+                    >
                     <View style={{
                         backgroundColor: COLORS.white,
                         borderRadius: 50,
@@ -336,7 +350,13 @@ const Home = () => {
             <View style={{ justifyContent: "space-around", flexWrap:"wrap", margin: SIZES.padding}}>
                 <View style={{ width: SIZES.width, flexDirection: 'row', justifyContent:"space-between"}}>
                     <Text style={{...FONTS.h3, color: COLORS.primary, marginLeft: SIZES.padding}}>HOT BIKES</Text>
-                    <TouchableOpacity  style={{marginRight: SIZES.padding * 3}}>
+                    <TouchableOpacity  
+                        style={{marginRight: SIZES.padding * 3}}
+                        onPress={() => {
+                            navigation.navigate("Products", {
+                            data: data.motorcycles
+                        })}}
+                        >
                         <Text style={{...FONTS.h4, color: COLORS.primary,textDecorationLine: 'underline' }}>SEE ALL</Text>
                     </TouchableOpacity>
                 </View>
@@ -412,14 +432,16 @@ const Home = () => {
 
         const renderItem = ({item}) => {
             return (
-                <TouchableOpacity style={{
-                    width: SIZES. width * 0.5 - 20,
-                    height: SIZES.height * 0.35,
-                    justifyContent: 'center',
-                    alignItems: 'center',
-                    elevation: 6,
-                    backgroundColor: COLORS.white
-                }}>
+                <TouchableOpacity 
+                    style={{
+                        width: SIZES. width * 0.5 - 20,
+                        height: SIZES.height * 0.35,
+                        justifyContent: 'center',
+                        alignItems: 'center',
+                        elevation: 6,
+                        backgroundColor: COLORS.white
+                    }}
+                >
                     <Image 
                         source={{
                             uri: item.image
@@ -445,7 +467,12 @@ const Home = () => {
             <View style={{ justifyContent: "space-around", flexWrap:"wrap", margin: SIZES.padding}}>
                 <View style={{ width: SIZES.width, flexDirection: 'row', justifyContent:"space-between"}}>
                     <Text style={{...FONTS.h3, color: COLORS.primary, marginLeft: SIZES.padding}}>Sports Cars</Text>
-                    <TouchableOpacity  style={{marginRight: SIZES.padding * 3}}>
+                    <TouchableOpacity
+                        style={{marginRight: SIZES.padding * 3}}
+                        onPress={() => navigation.navigate("Products", {
+                            data: data.cars
+                        })}
+                    >
                         <Text style={{...FONTS.h4, color: COLORS.primary,textDecorationLine: 'underline' }}>SEE ALL</Text>
                     </TouchableOpacity>
                 </View>
