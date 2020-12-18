@@ -4,7 +4,7 @@ import AppLoading from 'expo-app-loading';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 
-import { ProductList, ProductDetails } from './screens';
+import { ProductList, ProductDetails,LoadingScreen } from './screens';
 import Tabs from './navigation/bottomTabs'
 
 const App = () => {
@@ -15,7 +15,7 @@ const App = () => {
   })
 
   if (!fontsLoaded){
-    return <AppLoading />
+    return <LoadingScreen />
   }
 
   const Stack = createStackNavigator();

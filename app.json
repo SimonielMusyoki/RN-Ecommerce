@@ -6,7 +6,7 @@
     "orientation": "portrait",
     "icon": "./assets/ic_launcher.png",
     "splash": {
-      "image": "./assets/ic_launcher.png",
+      "image": "./assets/appstore.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
